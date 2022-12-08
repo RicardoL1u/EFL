@@ -1,0 +1,21 @@
+python -u -m paddle.distributed.launch --gpus "1" run_train.py \
+    --output_dir checkpoint_bustm \
+    --task_name bustm \
+    --split_id few_all \
+    --prompt_path prompt/bustm.json \
+    --prompt_index 0 \
+    --do_train \
+    --do_eval \
+    --do_test \
+    --do_predict \
+    --do_label \
+    --max_steps 1000 \
+    --learning_rate 3e-5 \
+    --eval_steps 100 \
+    --save_steps 100 \
+    --logging_steps 5  \
+    --per_device_train_batch_size 16 \
+    --max_seq_length 128 \
+    --load_best_model_at_end \
+    --metric_for_best_model accuracy \
+    --save_total_limit 1
